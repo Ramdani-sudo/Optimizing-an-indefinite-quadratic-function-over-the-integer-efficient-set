@@ -1,0 +1,13 @@
+name: oqpes_py
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.12.14
+  - pip
+  - pip:
+      - -e .
+      - numpy==2.3.5
+      - scipy==1.17.0
+      - highspy==1.15.1
+      - pytest==9.0.2

@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "oqpes-benchmark"
+version = "0.2.0"
+description = "Exact benchmarking framework for indefinite quadratic optimization over integer efficient sets"
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+authors = [
+  {name = "Ramdani Zoubir", email = "z.ramdani@univ-bba.dz"},
+  {name = "Brahmi Boualem"},
+  {name = "Leila Younsi Abbaci"},
+  {name = "Iftissen El-Ghani"},
+]
+dependencies = [
+  "numpy==2.3.5",
+  "scipy==1.17.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest==9.0.2"]
+highs = ["highspy==1.15.1"]
+
+[project.scripts]
+oqpes = "oqpes.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-q"
+testpaths = ["tests"]
