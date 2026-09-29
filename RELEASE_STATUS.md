@@ -1,7 +1,35 @@
 # Release Status
 
-This branch contains the curated **public-facing GitHub release layer** prepared from the files available during this curation pass: documentation, package/environment metadata, Windows launch scripts, validation notes, result-schema documentation, and the deterministic 1440-instance benchmark manifest.
+The original OQPES Python source tree and test suite have now been imported from the supplied one-click project archive.
 
-The complete Python source tree (`src/oqpes/`) and complete test tree (`tests/`) were described by the supplied audit, but they were not available as directly editable source files in the accessible upload set. They have therefore **not been reconstructed or fabricated** here.
+## Source now included
 
-Before advertising this branch as a runnable archival release, import the original full source and test trees and complete the checks in `docs/PUBLIC_RELEASE_CHECKLIST.md`.
+The repository contains the complete `src/oqpes/` package and `tests/` suite, including the proposed exact method, the independent Prerna–Sharma (2024) benchmark implementation, benchmark-generation utilities, paired-campaign code, SciPy/HiGHS solver wrappers, validation utilities, the CLI, and the interactive launcher.
+
+All user-facing messages in `src/oqpes/launcher.py` were translated to English. The mathematical and algorithmic code was otherwise kept consistent with the supplied original project.
+
+## Validation performed during import
+
+The supplied source archive was extracted and tested in the available validation environment:
+
+- Python 3.13.5
+- NumPy 2.3.5
+- SciPy 1.17.0
+- pytest 9.0.2
+
+Command:
+
+```text
+PYTHONPATH=src pytest -q
+```
+
+Result:
+
+```text
+.........                                                                [100%]
+9 passed
+```
+
+## Remaining archival-release step
+
+The public Conda environment pins Python 3.12.14 and `pyproject.toml` requires Python `>=3.12,<3.13`. Before creating a final archival GitHub release or tag, rerun the complete test suite under Python 3.12.14 and update `TEST_REPORT.txt` with that exact environment output.
