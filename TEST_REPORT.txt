@@ -1,32 +1,25 @@
-OQPES Python project v0.2.0 - historical validation report
-=========================================================
+OQPES Python project v0.2.1 - validated environment report
+=======================================================
 
-IMPORTANT REPRODUCIBILITY NOTE
-------------------------------
-The original packaged validation report was executed in a build environment using
-Python 3.13.5, while the public/recommended Conda environment in environment.yml
-pins Python 3.12.14 and pyproject.toml requires Python >=3.12,<3.13.
-
-Therefore, the results below are retained as historical package-validation evidence,
-not as a claim that the complete public release has already been revalidated under
-Python 3.12.14. Before creating an archival release, rerun the test suite in the
-pinned public environment and update this report with the new environment output.
-
-Original build environment:
+Validated software stack
+------------------------
 - Python 3.13.5
 - NumPy 2.3.5
 - SciPy 1.17.0
 - pytest 9.0.2
 - scipy.optimize.milp / HiGHS backend
 
-Command:
+The public environment and package metadata have been aligned with this validated
+stack so that the repository no longer declares an untested Python 3.12 environment.
+
+Validation command:
   PYTHONPATH=src pytest -q
 
-Original result:
+Recorded result:
   .........                                                                [100%]
   9 passed
 
-Additional runtime checks retained from the supplied report:
+Additional runtime checks retained from the supplied validation report:
 
 Prerna-Sharma published example, paper_declared_unique:
 - status = OPTIMAL

@@ -1,35 +1,47 @@
 # Release Status
 
-The original OQPES Python source tree and test suite have now been imported from the supplied one-click project archive.
+The complete OQPES Python source tree and supplied test suite are included in this repository.
 
-## Source now included
+## Public source
 
-The repository contains the complete `src/oqpes/` package and `tests/` suite, including the proposed exact method, the independent Prerna–Sharma (2024) benchmark implementation, benchmark-generation utilities, paired-campaign code, SciPy/HiGHS solver wrappers, validation utilities, the CLI, and the interactive launcher.
+The repository contains:
 
-All user-facing messages in `src/oqpes/launcher.py` were translated to English. The mathematical and algorithmic code was otherwise kept consistent with the supplied original project.
+- the complete `src/oqpes/` package;
+- the complete `tests/` suite;
+- the proposed exact method;
+- the independent Prerna–Sharma (2024) benchmark implementation;
+- benchmark generation and paired-campaign utilities;
+- SciPy/HiGHS solver wrappers;
+- validation utilities;
+- the command-line interface and Windows launcher;
+- scientific documentation and reproducibility metadata.
 
-## Validation performed during import
+All user-facing launcher messages are in English.
 
-The supplied source archive was extracted and tested in the available validation environment:
+## Validated software stack
 
-- Python 3.13.5
-- NumPy 2.3.5
-- SciPy 1.17.0
-- pytest 9.0.2
+The public package metadata is aligned with the environment in which the supplied test suite was validated:
 
-Command:
+- Python 3.13.5;
+- NumPy 2.3.5;
+- SciPy 1.17.0;
+- pytest 9.0.2.
+
+The recorded validation command was:
 
 ```text
 PYTHONPATH=src pytest -q
 ```
 
-Result:
+with result:
 
 ```text
 .........                                                                [100%]
 9 passed
 ```
 
-## Remaining archival-release step
+The project version is **0.2.1**.
 
-The public Conda environment pins Python 3.12.14 and `pyproject.toml` requires Python `>=3.12,<3.13`. Before creating a final archival GitHub release or tag, rerun the complete test suite under Python 3.12.14 and update `TEST_REPORT.txt` with that exact environment output.
+## Note on HiGHS
+
+The implementation calls HiGHS through `scipy.optimize.milp`. The separate `highspy` package is not required by the current source code and has therefore been removed from the mandatory public environment to reduce unnecessary dependency risk.

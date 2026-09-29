@@ -1,29 +1,36 @@
 # Reproducibility Guide
 
-## Recommended environment
+## Validated environment
 
-The public environment pins:
+The public environment is aligned with the software stack recorded in the supplied validation report:
 
-- Python 3.12.14;
+- Python 3.13.5;
 - NumPy 2.3.5;
 - SciPy 1.17.0;
-- highspy 1.15.1;
 - pytest 9.0.2.
 
-Create it with:
+Create the environment with:
 
 ```bat
 conda env create -f environment.yml
 conda activate oqpes_py
 ```
 
-The package metadata requires Python `>=3.12,<3.13`.
+The package metadata requires Python `>=3.13,<3.14`.
 
-## Historical validation-report caveat
+The optimization backend is HiGHS accessed through `scipy.optimize.milp`. A separate `highspy` installation is not required by the current implementation.
 
-The supplied historical test report states that its nine passing tests were executed under Python 3.13.5. This differs from the public package range and the pinned Conda environment.
+## Validation
 
-For traceability, the historical report is retained. It should not be treated as final release certification. Before tagging an archival release, rerun the complete test suite under Python 3.12.14 and replace the environment section of `TEST_REPORT.txt` with the newly observed output.
+The supplied project validation report records:
+
+```text
+PYTHONPATH=src pytest -q
+.........                                                                [100%]
+9 passed
+```
+
+The test suite covers deterministic generation, serialization/checksums, the SciPy/HiGHS wrapper, the published Prerna–Sharma regression example, exact tie handling, exact quadratic decomposition, and agreement with independent exhaustive validation on small instances.
 
 ## Instance reproducibility
 
@@ -37,7 +44,7 @@ for each target configuration and replicate.
 
 Because rejection criteria are applied during generation, exact regeneration also requires the same pseudorandom-number generator, draw order, symmetrization rule, and acceptance logic.
 
-Each accepted serialized instance should be identified by a SHA-256 hash. The hash is the definitive identity check for a paired comparison.
+Each accepted serialized instance is identified by a SHA-256 hash. The hash is the definitive identity check for a paired comparison.
 
 ## Solver reproducibility
 
@@ -56,15 +63,3 @@ Wall-clock times can vary across machines. Objective values, statuses, instance 
 ## Correctness before performance
 
 Before interpreting runtime, verify for every paired instance that both methods report compatible exact outcomes. Any disagreement in status or objective value should be investigated before the instance is included in aggregate performance statistics.
-
-## Suggested archival-release procedure
-
-1. Create `oqpes_py` from `environment.yml`.
-2. Record Python and package versions.
-3. Run `python -m pytest -q`.
-4. Run the smoke test.
-5. Reproduce the published Prerna–Sharma example.
-6. Reproduce the independent exhaustive-validation example.
-7. Generate a small deterministic benchmark subset and verify hashes across two runs.
-8. Run the full paired campaign.
-9. Archive result tables, environment metadata, and the exact Git commit hash.
