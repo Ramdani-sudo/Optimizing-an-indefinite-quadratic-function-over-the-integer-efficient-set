@@ -1,0 +1,63 @@
+OQPES Python project v0.2.0 - historical validation report
+=========================================================
+
+IMPORTANT REPRODUCIBILITY NOTE
+------------------------------
+The original packaged validation report was executed in a build environment using
+Python 3.13.5, while the public/recommended Conda environment in environment.yml
+pins Python 3.12.14 and pyproject.toml requires Python >=3.12,<3.13.
+
+Therefore, the results below are retained as historical package-validation evidence,
+not as a claim that the complete public release has already been revalidated under
+Python 3.12.14. Before creating an archival release, rerun the test suite in the
+pinned public environment and update this report with the new environment output.
+
+Original build environment:
+- Python 3.13.5
+- NumPy 2.3.5
+- SciPy 1.17.0
+- pytest 9.0.2
+- scipy.optimize.milp / HiGHS backend
+
+Command:
+  PYTHONPATH=src pytest -q
+
+Original result:
+  .........                                                                [100%]
+  9 passed
+
+Additional runtime checks retained from the supplied report:
+
+Prerna-Sharma published example, paper_declared_unique:
+- status = OPTIMAL
+- x* = [0, 10]
+- phi* = 820
+- linear ranks = 24
+- quadratic ranks = 7
+- LP = 0
+- ILP = 27
+- MILP = 7
+- SP = 34
+
+Prerna-Sharma published example, exact_no_good:
+- status = OPTIMAL
+- x* = [0, 10]
+- phi* = 820
+- paper_core_SP = 34
+- implementation tie ILP calls = 24
+- actual SP = 58
+- comparison_safe = false
+
+PROPOSED_METHOD on the same published example:
+- status = OPTIMAL
+- x* = [0, 10]
+- phi* = 820
+- SP = 16
+- iterations = 8
+- dominance cuts = 6
+- refinements = 8
+
+Independent exhaustive-validation test on a separate 2-variable instance:
+- true optimum over efficient set = 21 at [3, 0]
+- PROPOSED_METHOD = 21 at [3, 0]
+- PRERNA_SHARMA_2024 = 21 at [3, 0]
