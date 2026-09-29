@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the accompanying manuscript and this repository."
+title: "OQPES Benchmark: Exact Methods for Indefinite Quadratic Optimization over Integer Efficient Sets"
+type: software
+version: 0.2.0
+date-released: 2026-09-29
+repository-code: "https://github.com/Ramdani-sudo/Optimizing-an-indefinite-quadratic-function-over-the-integer-efficient-set"
+url: "https://github.com/Ramdani-sudo/Optimizing-an-indefinite-quadratic-function-over-the-integer-efficient-set"
+authors:
+  - family-names: Ramdani
+    given-names: Zoubir
+    email: z.ramdani@univ-bba.dz
+    affiliation: "Mathematical Analysis and Applications Laboratory, Faculty of Mathematics and Computer Science, University of Bordj Bou Arreridj, Algeria"
+  - family-names: Brahmi
+    given-names: Boualem
+    affiliation: "Mathematical Analysis and Applications Laboratory, Faculty of Mathematics and Computer Science, University of Bordj Bou Arreridj, Algeria"
+  - family-names: "Younsi Abbaci"
+    given-names: Leila
+    affiliation: "Department of Electrical Engineering, Faculty of Technology, Research Unit LAMOS, University of Bejaia, Algeria"
+  - family-names: Iftissen
+    given-names: El-Ghani
+    affiliation: "LIM Laboratory, Faculty of Exact Sciences, Bouira University, Algeria"
