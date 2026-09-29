@@ -2,7 +2,7 @@ cff-version: 1.2.0
 message: "If you use this software, please cite the accompanying manuscript and this repository."
 title: "OQPES Benchmark: Exact Methods for Indefinite Quadratic Optimization over Integer Efficient Sets"
 type: software
-version: 0.2.0
+version: 0.2.1
 date-released: 2026-09-29
 repository-code: "https://github.com/Ramdani-sudo/Optimizing-an-indefinite-quadratic-function-over-the-integer-efficient-set"
 url: "https://github.com/Ramdani-sudo/Optimizing-an-indefinite-quadratic-function-over-the-integer-efficient-set"
