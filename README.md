@@ -6,7 +6,7 @@ This repository accompanies the research study **“Optimizing an indefinite qua
 
 > **Research-use note.** The implementation of Prerna–Sharma (2024) in this project is an independent reconstruction from the published methodology. It is not official code from the original authors and should not be presented as such.
 
-> **Current release status.** The public documentation, reproducibility files, benchmark manifest, validation notes, and launch scripts are prepared in this repository branch. The complete `src/oqpes/` and `tests/` trees still need to be imported from the original full OQPES project before this branch should be advertised as a runnable archival release. See [`RELEASE_STATUS.md`](RELEASE_STATUS.md).
+> **Current release status.** The original `src/oqpes/` implementation and `tests/` suite have now been imported from the supplied OQPES one-click project. All user-facing launcher messages are in English, and the supplied 9-test suite passes in the available validation environment. The public Conda environment remains pinned to Python 3.12.14, so an archival tag should be created only after one final rerun under that exact pinned environment. See [`RELEASE_STATUS.md`](RELEASE_STATUS.md).
 
 ## Authors
 
