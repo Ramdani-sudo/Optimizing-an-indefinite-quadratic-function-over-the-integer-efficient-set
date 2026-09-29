@@ -1,0 +1,7 @@
+check,method,status,objective_value,solution,SP,ILP_calls,MILP_calls,iterations,cuts,refinements,notes
+published_example,PRERNA_SHARMA_2024_paper_declared_unique,OPTIMAL,820,"[0,10]",34,27,7,,,,"24 linear ranks; 7 quadratic ranks"
+published_example,PRERNA_SHARMA_2024_exact_no_good,OPTIMAL,820,"[0,10]",58,,,,,,"paper_core_SP=34; additional tie ILP calls=24; comparison_safe=false"
+published_example,PROPOSED_METHOD,OPTIMAL,820,"[0,10]",16,,,8,6,8,"same optimum as published example"
+independent_exhaustive_validation,EXHAUSTIVE,OPTIMAL,21,"[3,0]",,,,,,,"reference optimum"
+independent_exhaustive_validation,PROPOSED_METHOD,OPTIMAL,21,"[3,0]",,,,,,,"agrees with exhaustive validation"
+independent_exhaustive_validation,PRERNA_SHARMA_2024,OPTIMAL,21,"[3,0]",,,,,,,"agrees with exhaustive validation"
